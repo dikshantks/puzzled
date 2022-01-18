@@ -26,7 +26,7 @@ class homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(""),
+        title: Text("DK is a duche dick!!!!"),
       ),
     );
   }
