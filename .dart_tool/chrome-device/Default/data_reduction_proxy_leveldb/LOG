@@ -1,2 +1,5 @@
-2022/01/18-13:13:10.252 d7d3 Creating DB /tmp/flutter_tools.CLCNDT/flutter_tools_chrome_device.RRPUJI/Default/data_reduction_proxy_leveldb since it was missing.
-2022/01/18-13:13:10.263 d7d3 Delete type=3 #1
+2022/01/19-00:16:04.883 1fa84 Recovering log #5
+2022/01/19-00:16:04.887 1fa84 Delete type=3 #4
+2022/01/19-00:16:04.887 1fa84 Delete type=3 #2
+2022/01/19-00:16:04.887 1fa84 Delete type=0 #5
+2022/01/19-00:16:04.887 1fa84 Delete type=0 #3
