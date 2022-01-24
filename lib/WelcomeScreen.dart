@@ -25,15 +25,31 @@ class WelcomeScreen extends StatelessWidget {
               maintainBottomViewPadding: true,
               child: Container(
                 height: 500.0,
-                color: color5,
+                color: color3,
               ),
             ),
           ),
-          SizedBox(height: 15.0),
-          RoundedButton(name: " Guest", press: () {}),
+          RoundedButton(
+            color: color3,
+            name: " Guest",
+            press: () {},
+          ),
           SizedBox(
-            height: 30.0,
-          )
+            height: 50.0,
+          ),
+          RoundedButton(
+            color: color3,
+            name: " Google",
+            press: () {},
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          RoundedButton(
+            color: color2,
+            name: " apple",
+            press: () {},
+          ),
         ],
       ),
     );
@@ -43,32 +59,30 @@ class WelcomeScreen extends StatelessWidget {
 class RoundedButton extends StatelessWidget {
   final String name;
   final VoidCallback press;
+  final Color color;
   const RoundedButton({
     Key? key,
     required this.name,
     required this.press,
+    required this.color,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var Size = MediaQuery.of(context).size;
     return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
-      margin: EdgeInsets.symmetric(
-        horizontal: 10.0,
-        vertical: 10.0,
-      ),
-      height: Size.height * 0.1,
+      height: 60.0,
       width: 300.0,
-      child: ElevatedButton(
-        onPressed: press,
+      decoration: BoxDecoration(
+      
+          borderRadius: BorderRadius.circular(10.0), color: color),
+          
+      child: TextButton(
+        
         child: Text(
           name,
-          style: TextStyle(
-            fontSize: 30.0,
-            fontWeight: FontWeight.w600,
-          ),
+          style: GoogleFonts.notoSans(fontSize: 32.0, color: Colors.grey),
         ),
+        onPressed: () {},
       ),
     );
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:puzzled/WelcomeScreen.dart';
-import 'package:puzzled/constant.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -21,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0.0,
         actions: <Widget>[
           Container(
-            color: color2,
             padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
             child: FlutterSwitch(
               width: 125.0,
