@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import './homescreen.dart';
-import 'dart:js';
+import 'gamescreen/enter.dart';
+
+import 'start/homescreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Flutter Demo',
-      home: HomeScreen(),
+      home: EnterScreen(),
     );
   }
 }
