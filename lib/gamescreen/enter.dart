@@ -1,9 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:puzzled/constant.dart';
 import 'package:puzzled/gamescreen/gamescreen.dart';
-import 'package:puzzled/start/WelcomeScreen.dart';
+// import 'package:puzzled/start/WelcomeScreen.dart';
 
 class EnterScreen extends StatefulWidget {
   const EnterScreen({Key? key}) : super(key: key);

@@ -1,6 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:puzzled/start/WelcomeScreen.dart';
+// import 'package:puzzled/start/WelcomeScreen.dart';
 
 import '../constant.dart';
 
@@ -74,21 +76,19 @@ class GameCardV extends StatelessWidget {
                 const SizedBox(
                   width: 100.0,
                 ),
-                Container(
-                  child: Column(
-                    children: [
-                      RoundButton(
-                          name: "SOLO",
-                          press: () {
-                            return print(" solooo");
-                          },
-                          color: kblue),
-                      SizedBox(
-                        height: 50.0,
-                      ),
-                      RoundButton(name: "FRIENDS", press: () {}, color: kblue),
-                    ],
-                  ),
+                Column(
+                  children: [
+                    RoundButton(
+                        name: "SOLO",
+                        press: () {
+                          // return print(" solooo");
+                        },
+                        color: kblue),
+                    SizedBox(
+                      height: 50.0,
+                    ),
+                    RoundButton(name: "FRIENDS", press: () {}, color: kblue),
+                  ],
                 )
               ],
             ),

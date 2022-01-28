@@ -13,7 +13,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var Size = MediaQuery.of(context).size;
+    // var Size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
@@ -86,7 +86,7 @@ class WelcomeScreen extends StatelessWidget {
             color: kdarkblue,
             name: " apple",
             press: () {
-              return print(" heelo ");
+              // return print(" heelo ");
             },
           ),
         ],

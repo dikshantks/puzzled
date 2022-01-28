@@ -6,4 +6,4 @@ const kblue = Color(0xff3590f3);
 const kdarkblue = Color(0xff068589);
 const kgreen = Color(0xff95E06C);
 const black = Color(0xff1C1018);
-const color5 = Color(0xffFC0C0C0);
+const color5 = Color(0xffFfffff);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'gamescreen/enter.dart';
+// import 'gamescreen/enter.dart';
 
 import 'start/homescreen.dart';
 
