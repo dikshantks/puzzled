@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:puzzled/start/WelcomeScreen.dart';
@@ -12,47 +11,41 @@ class GameCardH extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30.0),
-        color: kblue,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Center(
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(90.0),
-                      color: kgreen,
-                    ),
-                    height: 300.0,
-                    width: 400.0,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Center(
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(90.0),
+                    color: kgreen,
                   ),
-                  SizedBox(
-                    height: 30.0,
-                  ),
-                  RoundButton(
-                    name: "SOLO",
-                    press: () {},
-                    color: kdarkblue,
-                  ),
-                  SizedBox(
-                    height: 30.0,
-                  ),
-                  RoundButton(
-                    name: "Friends",
-                    press: () {},
-                    color: kdarkblue,
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+                  height: 300.0,
+                  width: 400.0,
+                ),
+                SizedBox(
+                  height: 30.0,
+                ),
+                RoundButton(
+                  name: "SOLO",
+                  press: () {},
+                  color: kdarkblue,
+                ),
+                SizedBox(
+                  height: 30.0,
+                ),
+                RoundButton(
+                  name: "Friends",
+                  press: () {},
+                  color: kdarkblue,
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
@@ -79,15 +72,19 @@ class GameCardV extends StatelessWidget {
                   width: 300.0,
                 ),
                 const SizedBox(
-                  width: 20.0,
+                  width: 100.0,
                 ),
                 Container(
-                  color: kgreen,
                   child: Column(
                     children: [
-                      RoundButton(name: "SOLO", press: () {}, color: kblue),
+                      RoundButton(
+                          name: "SOLO",
+                          press: () {
+                            return print(" solooo");
+                          },
+                          color: kblue),
                       SizedBox(
-                        height: 40.0,
+                        height: 50.0,
                       ),
                       RoundButton(name: "FRIENDS", press: () {}, color: kblue),
                     ],
