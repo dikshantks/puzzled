@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:puzzled/gamescreen/enter.dart';
 
 import '../constant.dart';
@@ -77,7 +78,9 @@ class WelcomeScreen extends StatelessWidget {
           RoundedButton(
             color: kgreen,
             name: " Google",
-            press: () {},
+            press: () {
+              GoogleSignIn().signIn();
+            },
           ),
           SizedBox(
             height: 20.0,
