@@ -30,7 +30,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 50.0,
+            height: 10.0,
           ),
           RoundedButton(
             color: kblue,
@@ -62,7 +62,7 @@ class WelcomeScreen extends StatelessWidget {
                 style: GoogleFonts.notoSans(
                   fontSize: 25.0,
                   fontWeight: FontWeight.w600,
-                  color: color5,
+                  color: kdarkblue,
                 ),
               ),
               Expanded(
@@ -91,6 +91,9 @@ class WelcomeScreen extends StatelessWidget {
             press: () {
               // return print(" heelo ");
             },
+          ),
+          SizedBox(
+            height: 10.0,
           ),
         ],
       ),
