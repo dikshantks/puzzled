@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:puzzled/puzzles/puzzle1.dart';
 // import 'package:puzzled/start/WelcomeScreen.dart';
 
 import '../constant.dart';
@@ -33,7 +35,13 @@ class GameCardH extends StatelessWidget {
                 ),
                 RoundButton(
                   name: "SOLO",
-                  press: () {},
+                  press: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => PuzzleOne(),
+                      ),
+                    );
+                  },
                   color: kdarkblue,
                 ),
                 SizedBox(

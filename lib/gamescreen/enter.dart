@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:puzzled/constant.dart';
 import 'package:puzzled/gamescreen/gamescreen.dart';
 // import 'package:puzzled/start/WelcomeScreen.dart';
 
@@ -22,18 +21,16 @@ class _EnterScreenState extends State<EnterScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        leading: Row(
-          children: <Widget>[
-            Container(
-              height: 20,
-              width: 20.0,
-              color: kblue ,
-            ),
-            Text(
-              " Guest101",
-              style: TextStyle(fontSize: 20.0, color: kblue),
-            ),
-          ],
+        leading: Container(
+          padding: EdgeInsets.all(3.0),
+          child: Row(
+            children: [
+              CircleAvatar(
+                maxRadius: 30.0,
+              ),
+              Text("GUEST  "),
+            ],
+          ),
         ),
         actions: <Widget>[
           Container(

@@ -40,6 +40,7 @@ dependencies:
   google_ui: ^2.7.0
   get: ^4.6.1
   google_sign_in_web: ^0.10.0+4
+  lite_rolling_switch: ^0.1.1
 
 dev_dependencies:
   flutter_test:
