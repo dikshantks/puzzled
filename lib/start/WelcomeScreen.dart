@@ -21,93 +21,97 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // var Size = MediaQuery.of(context).size;
-    return SingleChildScrollView(child: Obx(() {
-      if (controler.googleaccount.value == null) {
-        return Column(
-          children: <Widget>[
-            SizedBox(
-              height: 50.0,
-            ),
-            Container(
-              height: 500.0,
-              width: 500.0,
-              decoration: BoxDecoration(
-                color: kgreen,
-                borderRadius: BorderRadius.circular(30.0),
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            RoundedButton(
-              color: kblue,
-              name: " Gust",
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const EnterScreen(),
-                  ),
-                );
-              },
-            ),
-            SizedBox(
-              height: 40.0,
-            ),
-            Row(
+    return SingleChildScrollView(
+      child: Obx(
+        () {
+          if (controler.googleaccount.value == null) {
+            return Column(
               children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: Divider(
-                    indent: 35.0,
-                    thickness: 2.0,
-                    color: color5,
+                SizedBox(
+                  height: 10.0,
+                ),
+                Container(
+                  height: 300.0,
+                  width: 300.0,
+                  decoration: BoxDecoration(
+                    color: kgreen,
+                    borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
-                Text(
-                  "OR",
-                  style: GoogleFonts.notoSans(
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.w600,
-                    color: kdarkblue,
-                  ),
+                SizedBox(
+                  height: 20.0,
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Divider(
-                    endIndent: 35.0,
-                    thickness: 2.0,
-                    color: color5,
-                  ),
+                RoundedButton(
+                  color: kblue,
+                  name: " Gust",
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const EnterScreen(),
+                      ),
+                    );
+                  },
+                ),
+                SizedBox(
+                  height: 30.0,
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: Divider(
+                        indent: 35.0,
+                        thickness: 20.0,
+                        color: color5,
+                      ),
+                    ),
+                    Text(
+                      "OR",
+                      style: GoogleFonts.notoSans(
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.w600,
+                        color: kdarkblue,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Divider(
+                        endIndent: 35.0,
+                        thickness: 2.0,
+                        color: color5,
+                      ),
+                    ),
+                  ],
+                ),
+                RoundedButton(
+                  color: kgreen,
+                  name: " Google",
+                  press: () {
+                    controler.login();
+                  },
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                RoundedButton(
+                  color: kdarkblue,
+                  name: " apple",
+                  press: () {
+                    // return print(" heelo ");
+                  },
+                ),
+                SizedBox(
+                  height: 10.0,
                 ),
               ],
-            ),
-            RoundedButton(
-              color: kgreen,
-              name: " Google",
-              press: () {
-                controler.login();
-              },
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            RoundedButton(
-              color: kdarkblue,
-              name: " apple",
-              press: () {
-                // return print(" heelo ");
-              },
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-          ],
-        );
-      } else {
-        return EnterScreen();
-      }
-    }));
+            );
+          } else {
+            return EnterScreen();
+          }
+        },
+      ),
+    );
   }
 }
 
@@ -125,10 +129,10 @@ class RoundedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70.0,
+      height: 50.0,
       width: 300.0,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0), color: color),
+          borderRadius: BorderRadius.circular(30.0), color: color),
       child: TextButton(
         child: Text(
           name,
@@ -139,85 +143,3 @@ class RoundedButton extends StatelessWidget {
     );
   }
 }
-
-// Column(
-//         children: <Widget>[
-//           SizedBox(
-//             height: 50.0,
-//           ),
-//           Container(
-//             height: 500.0,
-//             width: 500.0,
-//             decoration: BoxDecoration(
-//               color: kgreen,
-//               borderRadius: BorderRadius.circular(30.0),
-//             ),
-//           ),
-//           SizedBox(
-//             height: 10.0,
-//           ),
-//           RoundedButton(
-//             color: kblue,
-//             name: " Gust",
-//             press: () {
-//               Navigator.push(
-//                 context,
-//                 MaterialPageRoute(
-//                   builder: (context) => const EnterScreen(),
-//                 ),
-//               );
-//             },
-//           ),
-//           SizedBox(
-//             height: 40.0,
-//           ),
-//           Row(
-//             children: <Widget>[
-//               Expanded(
-//                 flex: 1,
-//                 child: Divider(
-//                   indent: 35.0,
-//                   thickness: 2.0,
-//                   color: color5,
-//                 ),
-//               ),
-//               Text(
-//                 "OR",
-//                 style: GoogleFonts.notoSans(
-//                   fontSize: 25.0,
-//                   fontWeight: FontWeight.w600,
-//                   color: kdarkblue,
-//                 ),
-//               ),
-//               Expanded(
-//                 flex: 1,
-//                 child: Divider(
-//                   endIndent: 35.0,
-//                   thickness: 2.0,
-//                   color: color5,
-//                 ),
-//               ),
-//             ],
-//           ),
-//           RoundedButton(
-//             color: kgreen,
-//             name: " Google",
-//             press: () {
-//               GoogleSignIn().signIn();
-//             },
-//           ),
-//           SizedBox(
-//             height: 20.0,
-//           ),
-//           RoundedButton(
-//             color: kdarkblue,
-//             name: " apple",
-//             press: () {
-//               // return print(" heelo ");
-//             },
-//           ),
-//           SizedBox(
-//             height: 10.0,
-//           ),
-//         ],
-//       ),

@@ -1,12 +1,13 @@
+// ignore: invalid_language_version_override
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:puzzled/puzzles/puzzle1.dart';
 // import 'package:puzzled/start/WelcomeScreen.dart';
 
-import '../constant.dart';
+import '/constant.dart';
 
 class GameCardH extends StatelessWidget {
   const GameCardH({
@@ -68,6 +69,7 @@ class GameCardV extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size _size = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.all(10.0),
       child: Row(
@@ -81,8 +83,8 @@ class GameCardV extends StatelessWidget {
                   height: 300.0,
                   width: 300.0,
                 ),
-                const SizedBox(
-                  width: 100.0,
+                SizedBox(
+                  width: _size.width > 800 ? 80.0 : 20,
                 ),
                 Column(
                   children: [

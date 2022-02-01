@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 // import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 // import 'package:puzzled/constant.dart';
 
@@ -11,6 +12,7 @@ class GameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size _size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -19,20 +21,20 @@ class GameScreen extends StatelessWidget {
           ),
           LayoutBuilder(
               builder: (BuildContext ctx, BoxConstraints constraints) {
-            if (constraints.maxWidth >= 1200.0) {
+            if (constraints.maxWidth >= 1250.0) {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
-                    height: 60.0,
+                    height: 50.0,
                   ),
                   GameCardH(),
                   SizedBox(
-                    width: 50.0,
+                    width: _size.width > 1350 ? 30.0 : 7.0,
                   ),
                   GameCardH(),
                   SizedBox(
-                    width: 50.0,
+                    width: _size.width > 1350 ? 30.0 : 7.0,
                   ),
                   GameCardH(),
                 ],
