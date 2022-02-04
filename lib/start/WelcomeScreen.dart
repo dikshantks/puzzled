@@ -30,20 +30,17 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(
                   height: 10.0,
                 ),
-                Container(
-                  height: 300.0,
-                  width: 300.0,
-                  decoration: BoxDecoration(
-                    color: kgreen,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
+                // Container(
+                //   child: NeuButton(
+                //     onPressed: () {},
+                //     child: Text(" heloo"),
+                //   ),
+                // ),
                 SizedBox(
                   height: 20.0,
                 ),
                 RoundedButton(
-                  color: kblue,
-                  name: " Gust",
+                  name: " Guest",
                   press: () {
                     Navigator.push(
                       context,
@@ -62,8 +59,7 @@ class WelcomeScreen extends StatelessWidget {
                       flex: 1,
                       child: Divider(
                         indent: 35.0,
-                        thickness: 20.0,
-                        color: color5,
+                        thickness: 2.0,
                       ),
                     ),
                     Text(
@@ -71,7 +67,6 @@ class WelcomeScreen extends StatelessWidget {
                       style: GoogleFonts.notoSans(
                         fontSize: 25.0,
                         fontWeight: FontWeight.w600,
-                        color: kdarkblue,
                       ),
                     ),
                     Expanded(
@@ -79,13 +74,11 @@ class WelcomeScreen extends StatelessWidget {
                       child: Divider(
                         endIndent: 35.0,
                         thickness: 2.0,
-                        color: color5,
                       ),
                     ),
                   ],
                 ),
                 RoundedButton(
-                  color: kgreen,
                   name: " Google",
                   press: () {
                     controler.login();
@@ -95,7 +88,6 @@ class WelcomeScreen extends StatelessWidget {
                   height: 20.0,
                 ),
                 RoundedButton(
-                  color: kdarkblue,
                   name: " apple",
                   press: () {
                     // return print(" heelo ");
@@ -118,12 +110,11 @@ class WelcomeScreen extends StatelessWidget {
 class RoundedButton extends StatelessWidget {
   final String name;
   final VoidCallback press;
-  final Color color;
+
   const RoundedButton({
     Key? key,
     required this.name,
     required this.press,
-    required this.color,
   }) : super(key: key);
 
   @override
@@ -132,11 +123,23 @@ class RoundedButton extends StatelessWidget {
       height: 50.0,
       width: 300.0,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30.0), color: color),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.yellow,
+            offset: Offset(5.0, 5.0),
+          ),
+          BoxShadow()
+        ],
+        borderRadius: BorderRadius.circular(30.0),
+        color: kdarkblue,
+      ),
       child: TextButton(
         child: Text(
           name,
-          style: GoogleFonts.notoSans(fontSize: 32.0, color: color5),
+          style: GoogleFonts.notoSans(
+            fontSize: 32.0,
+            color: black,
+          ),
         ),
         onPressed: press,
       ),

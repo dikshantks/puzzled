@@ -14,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -23,18 +22,33 @@ class _HomeScreenState extends State<HomeScreen> {
       body: LayoutBuilder(
         builder: (BuildContext ctx, BoxConstraints constraints) {
           if (constraints.maxWidth >= 1500.0) {
-            return Center(
-                child: Text(
-              "helo",
-              style: TextStyle(
-                fontSize: 100.0,
-              ),
-            ));
+            return WideScren();
           } else {
             return WelcomeScreen();
           }
         },
       ),
     );
+  }
+}
+
+class WideScren extends StatelessWidget {
+  const WideScren({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Container(
+      height: 200.0,
+      color: Theme.of(context).primaryColor,
+      child: Text(
+        "hola ",
+        style: TextStyle(
+          fontSize: 100.0,
+        ),
+      ),
+    ));
   }
 }

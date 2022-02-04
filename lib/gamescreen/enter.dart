@@ -20,17 +20,6 @@ class _EnterScreenState extends State<EnterScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        leading: Container(
-          padding: EdgeInsets.all(3.0),
-          child: Row(
-            children: [
-              CircleAvatar(
-                maxRadius: 30.0,
-              ),
-              Text("GUEST  "),
-            ],
-          ),
-        ),
       ),
       body: GameScreen(),
     );

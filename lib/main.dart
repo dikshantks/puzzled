@@ -1,5 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-// import 'gamescreen/enter.dart';
+import 'package:puzzled/constant.dart';
 
 import 'start/homescreen.dart';
 
@@ -13,8 +15,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
+      themeMode: ThemeMode.dark,
+      theme: Mytheme.lighttheme,
+      darkTheme: Mytheme.darkTheme,
       home: HomeScreen(),
     );
   }
