@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, camel_case_types
 
 // import 'package:flutter/foundation.dart';
 
@@ -44,14 +44,37 @@ class phonescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).primaryColor,
-      height: 500.0,
-      child: Center(
-        child: Text(
-          "hosfhdsohfsdophff",
+    return Row(
+      children: [
+        SizedBox(
+          height: 10.0,
         ),
-      ),
+        Container(
+          color: kblue,
+          child: Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(11.0),
+                child: Container(
+                  height: 200.0,
+                  width: 200.0,
+                ),
+              ),
+              Column(
+                children: [],
+              )
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+        Container(),
+        SizedBox(
+          height: 10.0,
+        ),
+        Container(),
+      ],
     );
   }
 }

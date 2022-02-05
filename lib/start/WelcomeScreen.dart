@@ -30,12 +30,14 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(
                   height: 10.0,
                 ),
-                // Container(
-                //   child: NeuButton(
-                //     onPressed: () {},
-                //     child: Text(" heloo"),
-                //   ),
-                // ),
+                Container(
+                  height: 300.0,
+                  width: 300.0,
+                  child: Image.asset(
+                    "assets/animate/image_processing20211024-715-14nmgcl.gif",
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
                 SizedBox(
                   height: 20.0,
                 ),
@@ -78,11 +80,31 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                RoundedButton(
-                  name: " Google",
-                  press: () {
-                    controler.login();
-                  },
+                Container(
+                  height: 50.0,
+                  width: 300.0,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 2.0,
+                        offset: Offset(5.0, 5.0),
+                      ),
+                      BoxShadow()
+                    ],
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: kdarkblue,
+                  ),
+                  child: TextButton(
+                    child: Text(
+                      "Google",
+                      style: GoogleFonts.notoSans(
+                        fontSize: 32.0,
+                        color: black,
+                      ),
+                    ),
+                    onPressed: () {},
+                  ),
                 ),
                 SizedBox(
                   height: 20.0,
@@ -125,7 +147,8 @@ class RoundedButton extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Colors.yellow,
+            color: Colors.grey,
+            blurRadius: 2.0,
             offset: Offset(5.0, 5.0),
           ),
           BoxShadow()

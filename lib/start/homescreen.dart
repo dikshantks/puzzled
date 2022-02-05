@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:puzzled/constant.dart';
 
 import 'package:puzzled/start/WelcomeScreen.dart';
 
@@ -39,16 +40,28 @@ class WideScren extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: Container(
-      height: 200.0,
-      color: Theme.of(context).primaryColor,
-      child: Text(
-        "hola ",
-        style: TextStyle(
-          fontSize: 100.0,
+    return Row(
+      children: [
+        Expanded(
+          child: Container(
+            color: kblue,
+            child: Image.asset(
+                'assets/animate/image_processing20211024-715-14nmgcl.gif'),
+          ),
         ),
-      ),
-    ));
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            child: Text(
+              "helllo",
+              style: TextStyle(
+                fontStyle: FontStyle.italic,
+                fontSize: 100.0,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }

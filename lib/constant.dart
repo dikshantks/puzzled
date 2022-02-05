@@ -5,17 +5,17 @@ import 'package:flutter/material.dart';
 const kblue = Color(0xff3590f3);
 const kdarkblue = Color(0xff068589);
 const kgreen = Color(0xff95E06C);
-const black = Color(0xff1C1018);
+const black = Color(0xff141414);
 const color5 = Color(0xffFfffff);
 
 class Mytheme {
   static final lighttheme = ThemeData(
     primaryColor: color5,
-    colorScheme: ColorScheme.light(),
+    colorScheme: const ColorScheme.light(),
   );
 
   static final darkTheme = ThemeData(
-    primaryColor: black,
-    colorScheme: ColorScheme.dark(),
+    scaffoldBackgroundColor: black,
+    colorScheme: const ColorScheme.dark(),
   );
 }
