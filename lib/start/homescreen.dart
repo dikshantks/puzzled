@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:puzzled/constant.dart';
 
-import 'package:puzzled/start/WelcomeScreen.dart';
+import 'package:puzzled/start/ScreenOne.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

@@ -9,8 +9,8 @@ import 'package:puzzled/constant.dart';
 
 import 'titlecard.dart';
 
-class GameScreen extends StatelessWidget {
-  const GameScreen({Key? key}) : super(key: key);
+class ScreenThree extends StatelessWidget {
+  const ScreenThree({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

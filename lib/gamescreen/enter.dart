@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:puzzled/gamescreen/gamescreen.dart';
+import 'package:puzzled/gamescreen/ScreenThree.dart';
 // import 'package:puzzled/start/WelcomeScreen.dart';
 
 class ScreenTwo extends StatefulWidget {
@@ -21,7 +21,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      body: GameScreen(),
+      body: ScreenThree(),
     );
   }
 }
