@@ -8,10 +8,10 @@ class PuzzleOne extends StatefulWidget {
   const PuzzleOne({Key? key}) : super(key: key);
 
   @override
-  _EnterScreenState createState() => _EnterScreenState();
+  _PuzzleOneState createState() => _PuzzleOneState();
 }
 
-class _EnterScreenState extends State<PuzzleOne> {
+class _PuzzleOneState extends State<PuzzleOne> {
   bool status = false;
   @override
   Widget build(BuildContext context) {
