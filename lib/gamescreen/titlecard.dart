@@ -50,7 +50,13 @@ class GameCardH extends StatelessWidget {
                 ),
                 RoundButton(
                   name: "Friends",
-                  press: () {},
+                  press: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => PuzzleOne(),
+                      ),
+                    );
+                  },
                   color: kdarkblue,
                 ),
               ],
@@ -91,7 +97,11 @@ class GameCardV extends StatelessWidget {
                     RoundButton(
                         name: "SOLO",
                         press: () {
-                          // return print(" solooo");
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => PuzzleOne(),
+                            ),
+                          );
                         },
                         color: kblue),
                     SizedBox(

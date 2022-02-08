@@ -3,6 +3,7 @@
 // import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:puzzled/constant.dart';
 // import 'package:puzzled/constant.dart';
 
@@ -44,36 +45,52 @@ class phonescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(
-          height: 10.0,
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          PhoneSizegame(),
+          SizedBox(
+            height: 10.0,
+          ),
+          PhoneSizegame(),
+          SizedBox(
+            height: 10.0,
+          ),
+          PhoneSizegame(),
+        ],
+      ),
+    );
+  }
+}
+
+class PhoneSizegame extends StatelessWidget {
+  const PhoneSizegame({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
         Container(
-          color: kblue,
-          child: Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(11.0),
-                child: Container(
-                  height: 200.0,
-                  width: 200.0,
-                ),
-              ),
-              Column(
-                children: [],
-              )
-            ],
+          color: kdarkblue,
+          height: MediaQuery.of(context).size.height * 0.4,
+          width: MediaQuery.of(context).size.width * 0.8,
+          padding: EdgeInsets.all(20.0),
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.4,
+            width: MediaQuery.of(context).size.width * 0.8,
+            decoration: BoxDecoration(
+              color: Colors.yellow,
+              borderRadius: BorderRadius.circular(20.0),
+            ),
           ),
         ),
-        SizedBox(
-          height: 10.0,
+        Row(
+          children: [
+            RoundButton(name: " single", press: () {}, color: kblue),
+            RoundButton(name: " single", press: () {}, color: kblue),
+          ],
         ),
-        Container(),
-        SizedBox(
-          height: 10.0,
-        ),
-        Container(),
       ],
     );
   }
@@ -135,6 +152,47 @@ class wide extends StatelessWidget {
         ),
         GameCardH(),
       ],
+    );
+  }
+}
+
+class RoundedButton extends StatelessWidget {
+  final String name;
+  final VoidCallback press;
+
+  const RoundedButton({
+    Key? key,
+    required this.name,
+    required this.press,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50.0,
+      width: 100.0,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 2.0,
+            offset: Offset(5.0, 5.0),
+          ),
+          BoxShadow()
+        ],
+        borderRadius: BorderRadius.circular(30.0),
+        color: kdarkblue,
+      ),
+      child: TextButton(
+        child: Text(
+          name,
+          style: GoogleFonts.notoSans(
+            fontSize: 32.0,
+            color: black,
+          ),
+        ),
+        onPressed: press,
+      ),
     );
   }
 }

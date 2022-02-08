@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:puzzled/gamescreen/gamescreen.dart';
 // import 'package:puzzled/start/WelcomeScreen.dart';
 
-class EnterScreen extends StatefulWidget {
-  const EnterScreen({Key? key}) : super(key: key);
+class ScreenTwo extends StatefulWidget {
+  const ScreenTwo({Key? key}) : super(key: key);
 
   @override
-  _EnterScreenState createState() => _EnterScreenState();
+  _ScreenTwoState createState() => _ScreenTwoState();
 }
 
-class _EnterScreenState extends State<EnterScreen> {
+class _ScreenTwoState extends State<ScreenTwo> {
   bool status = false;
   @override
   Widget build(BuildContext context) {

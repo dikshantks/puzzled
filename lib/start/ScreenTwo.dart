@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:get/route_manager.dart';
@@ -13,8 +14,8 @@ import 'package:puzzled/gamescreen/enter.dart';
 
 import '../constant.dart';
 
-class WelcomeScreen extends StatelessWidget {
-  WelcomeScreen({Key? key}) : super(key: key);
+class ScreenOne extends StatelessWidget {
+  ScreenOne({Key? key}) : super(key: key);
 
   final controler = Get.put(LogniController());
 
@@ -47,7 +48,7 @@ class WelcomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const EnterScreen(),
+                        builder: (context) => const ScreenTwo(),
                       ),
                     );
                   },
@@ -80,32 +81,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  height: 50.0,
-                  width: 300.0,
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 2.0,
-                        offset: Offset(5.0, 5.0),
-                      ),
-                      BoxShadow()
-                    ],
-                    borderRadius: BorderRadius.circular(30.0),
-                    color: kdarkblue,
-                  ),
-                  child: TextButton(
-                    child: Text(
-                      "Google",
-                      style: GoogleFonts.notoSans(
-                        fontSize: 32.0,
-                        color: black,
-                      ),
-                    ),
-                    onPressed: () {},
-                  ),
-                ),
+                
                 SizedBox(
                   height: 20.0,
                 ),
@@ -121,7 +97,7 @@ class WelcomeScreen extends StatelessWidget {
               ],
             );
           } else {
-            return EnterScreen();
+            return ScreenTwo();
           }
         },
       ),

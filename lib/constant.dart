@@ -10,7 +10,7 @@ const color5 = Color(0xffFfffff);
 
 class Mytheme {
   static final lighttheme = ThemeData(
-    primaryColor: color5,
+    scaffoldBackgroundColor: color5,
     colorScheme: const ColorScheme.light(),
   );
 

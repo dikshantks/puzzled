@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
           if (constraints.maxWidth >= 1500.0) {
             return WideScren();
           } else {
-            return WelcomeScreen();
+            return ScreenOne();
           }
         },
       ),
