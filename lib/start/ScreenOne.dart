@@ -10,7 +10,7 @@ import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:puzzled/backend/login.dart';
-import 'package:puzzled/gamescreen/enter.dart';
+import 'package:puzzled/gamescreen/ScreenTwo.dart';
 
 import '../constant.dart';
 
