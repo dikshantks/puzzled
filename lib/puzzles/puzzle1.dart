@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:puzzled/constant.dart';
 // import 'package:puzzled/start/WelcomeScreen.dart';
 
 class PuzzleOne extends StatefulWidget {
@@ -47,22 +46,19 @@ class Grid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    return SizedBox(
-      height: 400.0,
-      child: Padding(
-        padding: EdgeInsets.all(6.0),
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-          ),
-          itemCount: number.length,
-          itemBuilder: (context, index) {
-            return GridButton(
-              text: "text",
-              click: () {},
-            );
-          },
+    return Padding(
+      padding: EdgeInsets.all(100.0),
+      child: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 4,
         ),
+        itemCount: number.length,
+        itemBuilder: (context, index) {
+          return GridButton(
+            text: "text",
+            click: () {},
+          );
+        },
       ),
     );
   }

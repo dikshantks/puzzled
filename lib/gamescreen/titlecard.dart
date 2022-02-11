@@ -3,11 +3,11 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:google_fonts/google_fonts.dart';
 import 'package:puzzled/puzzles/puzzle1.dart';
 // import 'package:puzzled/start/WelcomeScreen.dart';
 
 import '/constant.dart';
+import 'ScreenThree.dart';
 
 class GameCardH extends StatelessWidget {
   const GameCardH({
@@ -34,7 +34,8 @@ class GameCardH extends StatelessWidget {
                 SizedBox(
                   height: 30.0,
                 ),
-                RoundButton(
+                RoundedButton(
+                  width: 300.0,
                   name: "SOLO",
                   press: () {
                     Navigator.of(context).push(
@@ -43,12 +44,12 @@ class GameCardH extends StatelessWidget {
                       ),
                     );
                   },
-                  color: kdarkblue,
                 ),
                 SizedBox(
                   height: 30.0,
                 ),
-                RoundButton(
+                RoundedButton(
+                  width: 300.0,
                   name: "Friends",
                   press: () {
                     Navigator.of(context).push(
@@ -57,7 +58,6 @@ class GameCardH extends StatelessWidget {
                       ),
                     );
                   },
-                  color: kdarkblue,
                 ),
               ],
             ),
@@ -79,7 +79,7 @@ class GameCardV extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(10.0),
       child: Row(
-        children: [
+        children: <Widget>[
           Center(
             child: Row(
               children: [
@@ -90,59 +90,35 @@ class GameCardV extends StatelessWidget {
                   width: 300.0,
                 ),
                 SizedBox(
-                  width: _size.width > 800 ? 80.0 : 20,
+                  width:_size.width/30,
                 ),
                 Column(
                   children: [
-                    RoundButton(
-                        name: "SOLO",
-                        press: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => PuzzleOne(),
-                            ),
-                          );
-                        },
-                        color: kblue),
+                    RoundedButton(
+                      width: 200.0,
+                      name: "SOLO",
+                      press: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => PuzzleOne(),
+                          ),
+                        );
+                      },
+                    ),
                     SizedBox(
                       height: 50.0,
                     ),
-                    RoundButton(name: "FRIENDS", press: () {}, color: kblue),
+                    RoundedButton(
+                      width: 200.0,
+                      name: "FRIENDS",
+                      press: () {},
+                    ),
                   ],
                 )
               ],
             ),
           )
         ],
-      ),
-    );
-  }
-}
-
-class RoundButton extends StatelessWidget {
-  final String name;
-  final VoidCallback press;
-  final Color color;
-  const RoundButton({
-    Key? key,
-    required this.name,
-    required this.press,
-    required this.color,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 70.0,
-      width: 300.0,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30.0), color: color),
-      child: TextButton(
-        child: Text(
-          name,
-          style: GoogleFonts.notoSans(fontSize: 32.0, color: Colors.white),
-        ),
-        onPressed: press,
       ),
     );
   }

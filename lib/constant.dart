@@ -7,6 +7,8 @@ const kdarkblue = Color(0xff068589);
 const kgreen = Color(0xff95E06C);
 const black = Color(0xff141414);
 const color5 = Color(0xffFfffff);
+final greey = Colors.grey.shade900;
+
 
 class Mytheme {
   static final lighttheme = ThemeData(
@@ -16,6 +18,7 @@ class Mytheme {
 
   static final darkTheme = ThemeData(
     scaffoldBackgroundColor: black,
-    colorScheme: const ColorScheme.dark(),
+    colorScheme:const  ColorScheme.dark(),
+    secondaryHeaderColor: black,
   );
 }

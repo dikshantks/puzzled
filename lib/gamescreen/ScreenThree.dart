@@ -1,15 +1,19 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types
+// ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:puzzled/constant.dart';
-// import 'package:puzzled/constant.dart';
 
 import 'titlecard.dart';
 
-class ScreenThree extends StatelessWidget {
+class ScreenThree extends StatefulWidget {
   const ScreenThree({Key? key}) : super(key: key);
 
+  @override
+  State<ScreenThree> createState() => _ScreenThreeState();
+}
+
+class _ScreenThreeState extends State<ScreenThree> {
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
@@ -22,12 +26,12 @@ class ScreenThree extends StatelessWidget {
           LayoutBuilder(
               builder: (BuildContext ctx, BoxConstraints constraints) {
             if (constraints.maxWidth >= 1250.0) {
-              return wide(size: _size);
+              return Wide(size: _size);
             }
             if (constraints.maxWidth > 650.0) {
-              return lesswidth();
+              return const LessWidth();
             } else {
-              return phonescreen();
+              return const PhoneScreen();
             }
           })
         ],
@@ -36,11 +40,16 @@ class ScreenThree extends StatelessWidget {
   }
 }
 
-class phonescreen extends StatelessWidget {
-  const phonescreen({
+class PhoneScreen extends StatefulWidget {
+  const PhoneScreen({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<PhoneScreen> createState() => _PhoneScreenState();
+}
+
+class _PhoneScreenState extends State<PhoneScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -49,13 +58,16 @@ class phonescreen extends StatelessWidget {
         children: const <Widget>[
           PhoneSizegame(),
           SizedBox(
-            height: 10.0,
+            height: 30.0,
+          ),
+          PhoneSizegame(),
+          SizedBox(
+            height: 30.0,
           ),
           PhoneSizegame(),
           SizedBox(
             height: 10.0,
           ),
-          PhoneSizegame(),
         ],
       ),
     );
@@ -67,26 +79,36 @@ class PhoneSizegame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size _size = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
         Container(
           color: kdarkblue,
           height: MediaQuery.of(context).size.height * 0.4,
           width: MediaQuery.of(context).size.width * 0.8,
-          padding: EdgeInsets.all(20.0),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.4,
-            width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(
-              color: Colors.yellow,
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-          ),
+        ),
+        SizedBox(
+          height: 30.0,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RoundButton(name: " single", press: () {}, color: kblue),
-            RoundButton(name: " single", press: () {}, color: kblue),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RoundedButton(
+                name: " solo",
+                press: () {},
+                width: _size.width / 2.5,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RoundedButton(
+                name: " friends",
+                press: () {},
+                width: _size.width / 2.5,
+              ),
+            ),
           ],
         ),
       ],
@@ -94,8 +116,8 @@ class PhoneSizegame extends StatelessWidget {
   }
 }
 
-class lesswidth extends StatelessWidget {
-  const lesswidth({
+class LessWidth extends StatelessWidget {
+  const LessWidth({
     Key? key,
   }) : super(key: key);
 
@@ -104,7 +126,7 @@ class lesswidth extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
+        children: const <Widget>[
           SizedBox(
             height: 0.0,
           ),
@@ -123,8 +145,8 @@ class lesswidth extends StatelessWidget {
   }
 }
 
-class wide extends StatelessWidget {
-  const wide({
+class Wide extends StatelessWidget {
+  const Wide({
     Key? key,
     required Size size,
   })  : _size = size,
@@ -141,11 +163,13 @@ class wide extends StatelessWidget {
           height: 50.0,
         ),
         GameCardH(),
-        SizedBox(
+        AnimatedContainer(
+          duration: Duration(milliseconds: 300),
           width: _size.width > 1350 ? 30.0 : 7.0,
         ),
         GameCardH(),
-        SizedBox(
+        AnimatedContainer(
+          duration: Duration(milliseconds: 300),
           width: _size.width > 1350 ? 30.0 : 7.0,
         ),
         GameCardH(),
@@ -154,42 +178,66 @@ class wide extends StatelessWidget {
   }
 }
 
-class RoundedButton extends StatelessWidget {
+class RoundedButton extends StatefulWidget {
   final String name;
   final VoidCallback press;
+
+  final double width;
 
   const RoundedButton({
     Key? key,
     required this.name,
     required this.press,
+    required this.width,
   }) : super(key: key);
 
   @override
+  State<RoundedButton> createState() => _RoundedButtonState();
+}
+
+class _RoundedButtonState extends State<RoundedButton> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50.0,
-      width: 100.0,
-      decoration: BoxDecoration(
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.grey,
-            blurRadius: 2.0,
-            offset: Offset(5.0, 5.0),
-          ),
-          BoxShadow()
-        ],
-        borderRadius: BorderRadius.circular(30.0),
-        color: kdarkblue,
-      ),
-      child: TextButton(
-        child: Text(
-          name,
-          style: GoogleFonts.notoSans(
-            fontSize: 32.0,
-            color: black,
+    bool _ispress = false;
+    return Center(
+      child: Container(
+        height: 55.0,
+        width: widget.width,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black,
+              blurRadius: 10.0,
+              offset: Offset(4, 4.0),
+              spreadRadius: 1.0,
+            ),
+            BoxShadow(
+              color: greey,
+              blurRadius: 10.0,
+              offset: Offset(-4.0, -4.0),
+              spreadRadius: 1.0,
+            )
+          ],
+          borderRadius: BorderRadius.circular(30.0),
+          color: black,
+        ),
+        child: Center(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _ispress = !_ispress;
+              });
+              widget.press();
+            },
+            child: Text(
+              widget.name,
+              style: GoogleFonts.notoSans(
+                fontSize: 32.0,
+                color: Colors.grey.shade800,
+              ),
+            ),
           ),
         ),
-        onPressed: press,
       ),
     );
   }
