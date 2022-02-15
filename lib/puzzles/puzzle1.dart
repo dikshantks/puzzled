@@ -5,6 +5,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:puzzled/constant.dart';
+import 'package:puzzled/start/homo.dart';
 // import 'package:puzzled/start/WelcomeScreen.dart';
 
 class Puzzle1 extends StatefulWidget {
@@ -22,7 +23,38 @@ class _Puzzle1State extends State<Puzzle1> {
         elevation: 0.0,
         title: Text(" klfldhgh"),
       ),
-      body: Board(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 20.0,
+            ),
+            Board(),
+            Menu(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Menu extends StatelessWidget {
+  const Menu({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 20.0,
+      width: MediaQuery.of(context).size.width,
+      color: kgreen,
+      alignment: Alignment.center,
+      child: Center(
+        child: Row(
+          children: [RoundedButton(name: " reset", press: () {})],
+        ),
+      ),
     );
   }
 }
@@ -59,38 +91,37 @@ class _BoardState extends State<Board> {
     number.shuffle();
   }
 
+  void startTime() {
+    if (isActive) {
+      setState(() {
+        secondsPassed = secondsPassed + 1;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
 
-    void startTime() {
-      if (isActive) {
-        setState(() {
-          secondsPassed = secondsPassed + 1;
-        });
-      }
-    }
-
-    void ClickGrid(index) {}
-
     return SafeArea(
-      child: Column(
-        children: [
-          Grid(
-            size: _size,
-            number: number,
-            clickgrid: (index) {
-              ClickGrid(index);
-            },
-          ),
-          Expanded(
-            child: Container(
-              color: kdarkblue,
-            ),
-          )
-        ],
+      child: Grid(
+        size: _size,
+        number: number,
+        clickgrid: clickGrid,
       ),
     );
+  }
+
+  void clickGrid(index) {
+    if (index - 1 >= 0 && number[index - 1] == 0 && index % 4 != 0 ||
+        index + 1 < 16 && number[index + 1] == 0 && (index + 1) % 4 != 0 ||
+        (index - 4 >= 0 && number[index - 4] == 0) ||
+        (index + 4 < 16 && number[index + 4] == 0)) {
+      setState(() {
+        number[number.indexOf(0)] = number[index];
+        number[index] = 0;
+      });
+    }
   }
 }
 
@@ -174,7 +205,7 @@ class _GridButtonState extends State<GridButton> {
           ),
         ),
       ),
-      onTap: widget.click(),
+      onTap: () => widget.click(),
     );
   }
 }
