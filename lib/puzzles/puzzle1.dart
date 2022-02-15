@@ -6,6 +6,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:puzzled/constant.dart';
 import 'package:puzzled/start/homo.dart';
+
+import 'grid and button.dart';
+import 'menu.dart';
 // import 'package:puzzled/start/WelcomeScreen.dart';
 
 class Puzzle1 extends StatefulWidget {
@@ -23,38 +26,7 @@ class _Puzzle1State extends State<Puzzle1> {
         elevation: 0.0,
         title: Text(" klfldhgh"),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 20.0,
-            ),
-            Board(),
-            Menu(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Menu extends StatelessWidget {
-  const Menu({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 20.0,
-      width: MediaQuery.of(context).size.width,
-      color: kgreen,
-      alignment: Alignment.center,
-      child: Center(
-        child: Row(
-          children: [RoundedButton(name: " reset", press: () {})],
-        ),
-      ),
+      body: Board(),
     );
   }
 }
@@ -102,12 +74,28 @@ class _BoardState extends State<Board> {
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
-
-    return SafeArea(
-      child: Grid(
-        size: _size,
-        number: number,
-        clickgrid: clickGrid,
+//////////////////////////////////////////////////////////////////////////////////////////////
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 20.0,
+          ),
+          SafeArea(
+            child: Grid(
+              size: _size,
+              number: number,
+              clickgrid: clickGrid,
+            ),
+          ),
+          SizedBox(
+            height: 30.0,
+          ),
+          Menu(
+            reset: () => reset(),
+            move: move,
+          ),
+        ],
       ),
     );
   }
@@ -120,92 +108,9 @@ class _BoardState extends State<Board> {
       setState(() {
         number[number.indexOf(0)] = number[index];
         number[index] = 0;
+        move++;
       });
     }
   }
 }
 
-class Grid extends StatelessWidget {
-  const Grid({
-    Key? key,
-    required this.clickgrid,
-    required Size size,
-    required this.number,
-  })  : _size = size,
-        super(key: key);
-
-  final Size _size;
-  final List<int> number;
-  final Function clickgrid;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: _size.width <= 600 ? 450.0 : 600,
-      width: _size.width <= 600 ? 450.0 : 600,
-      padding: EdgeInsets.all(10.0),
-      color: kblue,
-      child: Padding(
-        padding: EdgeInsets.all(0.0),
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: sqrt(number.length).toInt(),
-              crossAxisSpacing: 10.0,
-              mainAxisSpacing: 10.0),
-          itemCount: number.length,
-          itemBuilder: (context, index) {
-            return number[index] != 0
-                ? GridButton(
-                    text: "${number[index]}",
-                    click: () {
-                      clickgrid(index);
-                    },
-                  )
-                : SizedBox.shrink();
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class GridButton extends StatefulWidget {
-  const GridButton({
-    Key? key,
-    required this.text,
-    required this.click,
-  }) : super(key: key);
-  final String text;
-  final Function click;
-
-  @override
-  State<GridButton> createState() => _GridButtonState();
-}
-
-class _GridButtonState extends State<GridButton> {
-  @override
-  Widget build(BuildContext context) {
-    var color1 = kgreen;
-
-    return GestureDetector(
-      child: Container(
-        decoration: BoxDecoration(
-          color: color1,
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        child: Center(
-          child: Text(
-            widget.text,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 30.0,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-        ),
-      ),
-      onTap: () => widget.click(),
-    );
-  }
-}
