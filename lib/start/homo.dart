@@ -20,6 +20,7 @@ class FirstScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
         SizedBox(
@@ -28,10 +29,17 @@ class FirstScreen extends StatelessWidget {
         SizedBox(
           height: 300.0,
           width: 300.0,
-          child: Image.asset(
-            "assets/animate/image_processing20211024-715-14nmgcl.gif",
-            fit: BoxFit.fitHeight,
+
+          child: Container(
+            color: color5,
+            height: size.height * 0.3,
+            width: size.height * 0.3,
           ),
+
+          // child: Image.asset(
+          //   "assets/animate/image_processing20211024-715-14nmgcl.gif",
+          //   fit: BoxFit.fitHeight,
+          // ),
         ),
         SizedBox(
           height: 20.0,

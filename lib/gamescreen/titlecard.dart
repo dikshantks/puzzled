@@ -40,7 +40,7 @@ class GameCardH extends StatelessWidget {
                   press: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => PuzzleOne(),
+                        builder: (context) => Puzzle1(),
                       ),
                     );
                   },
@@ -54,7 +54,7 @@ class GameCardH extends StatelessWidget {
                   press: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => PuzzleOne(),
+                        builder: (context) => Puzzle1(),
                       ),
                     );
                   },
@@ -90,7 +90,7 @@ class GameCardV extends StatelessWidget {
                   width: 300.0,
                 ),
                 SizedBox(
-                  width:_size.width/30,
+                  width: _size.width / 30,
                 ),
                 Column(
                   children: [
@@ -100,7 +100,7 @@ class GameCardV extends StatelessWidget {
                       press: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => PuzzleOne(),
+                            builder: (context) => Puzzle1(),
                           ),
                         );
                       },
