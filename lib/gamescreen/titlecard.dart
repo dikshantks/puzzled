@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:puzzled/puzzles/puzzle1.dart';
+import 'package:puzzled/puzzle1/puzzle1.dart';
 // import 'package:puzzled/start/WelcomeScreen.dart';
 
 import '/constant.dart';

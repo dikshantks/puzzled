@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:puzzled/constant.dart';
+import 'package:puzzled/puzzle1/puzzle1.dart';
 
 import 'titlecard.dart';
 
@@ -91,13 +92,20 @@ class PhoneSizegame extends StatelessWidget {
           height: 30.0,
         ),
         Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: RoundedButton(
                 name: " solo",
-                press: () {},
+                press: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Puzzle1(),
+                    ),
+                  );
+                },
                 width: _size.width / 2.5,
               ),
             ),

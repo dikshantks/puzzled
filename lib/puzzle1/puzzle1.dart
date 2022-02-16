@@ -1,11 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_null_comparison
 
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:puzzled/constant.dart';
-import 'package:puzzled/start/homo.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 
 import 'grid and button.dart';
 import 'menu.dart';
@@ -43,8 +41,12 @@ class Board extends StatefulWidget {
 class _BoardState extends State<Board> {
   var number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   int move = 0;
-  final duration = Duration(seconds: 1);
+
   int secondsPassed = 0;
+
+  Timer? timer;
+
+  static const duration = Duration(seconds: 1);
   bool isActive = false;
 
   void reset() {
@@ -74,7 +76,13 @@ class _BoardState extends State<Board> {
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
-//////////////////////////////////////////////////////////////////////////////////////////////
+
+    timer ??= Timer.periodic(duration, (Timer t) {
+      startTime();
+    });
+
+    //////////////////////////////////////
+    //////////////////////////////////////
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -94,6 +102,7 @@ class _BoardState extends State<Board> {
           Menu(
             reset: () => reset(),
             move: move,
+            secondspassed: secondsPassed,
           ),
         ],
       ),
@@ -101,6 +110,9 @@ class _BoardState extends State<Board> {
   }
 
   void clickGrid(index) {
+    if (secondsPassed == 0) {
+      isActive = true;
+    }
     if (index - 1 >= 0 && number[index - 1] == 0 && index % 4 != 0 ||
         index + 1 < 16 && number[index + 1] == 0 && (index + 1) % 4 != 0 ||
         (index - 4 >= 0 && number[index - 4] == 0) ||
@@ -112,5 +124,48 @@ class _BoardState extends State<Board> {
       });
     }
   }
-}
 
+  bool isSorted(List list) {
+    int prev = list.first;
+    for (var i = 1; i < list.length - 1; i++) {
+      int next = list[i];
+      if (prev > next) return false;
+      prev = next;
+    }
+    return true;
+  }
+
+  void checkwin() {
+    if (isSorted(number)) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+              height: 300.0,
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("you won!!"),
+                    SizedBox(
+                      width: 220.0,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          navigator?.pop(context);
+                        },
+                        child: Text("close"),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      );
+    }
+  }
+}

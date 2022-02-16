@@ -23,11 +23,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      appBar: AppBar(
-        title: Text("App Bar without Back Button"),
-    
-      ),
       body: LayoutBuilder(
         builder: (BuildContext ctx, BoxConstraints constraints) {
           if (constraints.maxWidth >= 1500.0) {
@@ -44,7 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             );
-            
           }
         },
       ),
